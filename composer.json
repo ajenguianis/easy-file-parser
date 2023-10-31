@@ -1,5 +1,5 @@
 {
-  "name": "ajenguianis/file-parser-csv-xlsx-txt",
+  "name": "ajenguianis/easy-file-parser",
   "description": "Library to parse easily csv, xlsx and txt files.",
   "license": "MIT",
   "type": "library",
