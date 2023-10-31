@@ -1,0 +1,28 @@
+{
+  "name": "ajenguianis/file-parser-csv-xlsx-txt",
+  "description": "Library to parse easily csv, xlsx and txt files.",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Anis Ajengui",
+      "homepage": "https://github.com/ajenguianis"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AA\\FileParser\\": "lib"
+    },
+    "classmap": []
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\AA\\FileParser\\": "tests/Unit/"
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "league/csv": "^9.11",
+    "phpoffice/phpspreadsheet": "^1.29"
+  }
+}
