@@ -1,10 +1,10 @@
 # PHP FTP and SFTP Client Connector Library
 
-[![License](https://img.shields.io/github/license/ajenguianis/file-parser-csv-xlsx-txt)](https://github.com/ajenguianis/file-parser-csv-xlsx-txt/blob/develop/LICENSE)
-[![Latest Release](https://img.shields.io/github/v/release/ajenguianis/file-parser-csv-xlsx-txt)](https://github.com/ajenguianis/file-parser-csv-xlsx-txt/releases/latest)
-![Total Downloads](https://img.shields.io/packagist/dt/ajenguianis/file-parser-csv-xlsx-txt)
-![Latest Unstable Version](https://img.shields.io/packagist/vpre/ajenguianis/file-parser-csv-xlsx-txt)
-![PHP Version](https://img.shields.io/packagist/php-v/ajenguianis/file-parser-csv-xlsx-txt)
+[![License](https://img.shields.io/github/license/ajenguianis/easy-file-parser)](https://github.com/ajenguianis/easy-file-parser/blob/develop/LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/ajenguianis/easy-file-parser)](https://github.com/ajenguianis/easy-file-parser/releases/latest)
+![Total Downloads](https://img.shields.io/packagist/dt/ajenguianis/easy-file-parser)
+![Latest Unstable Version](https://img.shields.io/packagist/vpre/ajenguianis/easy-file-parser)
+![PHP Version](https://img.shields.io/packagist/php-v/ajenguianis/easy-file-parser)
 
 The EasyFileParser PHP library simplifies the process of parsing various file formats, including TXT, XLSX, and CSV. It offers a collection of reusable code components that streamline data extraction and manipulation from these file types, making it an essential tool for data processing tasks.
 
