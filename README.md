@@ -18,7 +18,7 @@ The EasyFileParser PHP library simplifies the process of parsing various file fo
 
 To get started with our library, you can install it via Composer:
 
-         composer require ajenguianis/file-parser-csv-xlsx-txt
+         composer require ajenguianis/easy-file-parser
 
 ## Usage
 
