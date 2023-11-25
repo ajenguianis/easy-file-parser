@@ -117,5 +117,9 @@ class XlsxParser extends AbstractParser
     public function setDelimiter($delimiter): void
     {
     }
+    public function getHeader()
+    {
+        
+    }
 
 }
