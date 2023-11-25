@@ -47,7 +47,7 @@ class CsvParser extends AbstractParser
      */
     public function parse($path, $mode): Reader
     {
-        $content=file_get_contents($path);
+        $content = file_get_contents($path);
         $csv = Reader::createFromString($content, $mode);
         $this->csv = $this->convertToUtf8($csv);
         return $this->csv;
@@ -98,10 +98,10 @@ class CsvParser extends AbstractParser
      * @throws Exception
      * @throws \League\Csv\SyntaxError
      */
-    public function getRecords($params=[]): \League\Csv\TabularDataReader
+    public function getRecords($params = []): \League\Csv\TabularDataReader
     {
-        $offset=$params['offset'] ?? 0;
-        $limit=$params['limit'] ?? null;
+        $offset = $params['offset'] ?? 0;
+        $limit = $params['limit'] ?? null;
 
         $stmt = (new Statement())
             ->offset($offset);
@@ -111,4 +111,9 @@ class CsvParser extends AbstractParser
 
         return $stmt->process($this->csv);
     }
+    public function getHeader(): array
+    {
+        return $this->csv->getHeader();
+    }
 }
+ 
