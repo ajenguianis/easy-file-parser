@@ -36,6 +36,7 @@ use League\Csv\Reader;
  * @method Reader|int setHeaderOffset($offset) Set header offset
  * @method Reader setDelimiter(string $delimiter) delimiter can be ";", ",", "|" or other character
  * @method array getRecords($params = []) get file records
+ * @method array getHeader($params = []) get file header
  *
  * @author  Anis Ajengui <https://github.com/ajenguianis>
  */
