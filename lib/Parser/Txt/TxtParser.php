@@ -124,4 +124,9 @@ class TxtParser extends AbstractParser
         return $this->headerIndex;
     }
 
+    public function getHeader()
+    {
+        
+    }
+
 }
