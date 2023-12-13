@@ -49,7 +49,8 @@ class CsvParser extends AbstractParser
     {
         $content = file_get_contents($path);
         $csv = Reader::createFromString($content, $mode);
-        $this->csv = $this->convertToUtf8($csv);
+         /* uncomment this if you need to convert to UTF8 */
+//        $this->csv = $this->convertToUtf8($csv);
         return $this->csv;
     }
 
