@@ -63,7 +63,7 @@ class TxtParser extends AbstractParser
         return $this->lines;
     }
 
-    public function getRecords($params=[])
+    public function getRecords($params = [])
     {
         $offset = $params['offset'] ?? 0;
         $limit = $params['limit'] ?? null;
@@ -85,7 +85,9 @@ class TxtParser extends AbstractParser
 
         // Process the lines
         foreach ($this->lines as $index => $line) {
-            $records[$index] = $this->processLine($line, $headers);
+            if(!empty($record=$this->processLine($line, $headers))){
+                $records[$index] = $record;
+            }
         }
         return $records;
 
@@ -98,9 +100,14 @@ class TxtParser extends AbstractParser
         }
         // Split the line using the specified delimiter
         $parts = explode($this->delimiter, $line);
-
+        if (empty($headers)) {
+            $headers = $this->getHeader();
+        }
         // If headers are available, create an associative array
         if (!empty($headers)) {
+            if (count($headers) != count($parts)) {
+                return [];
+            }
             $record = array_combine($headers, $parts);
         } else {
             $record = $parts;
@@ -126,7 +133,7 @@ class TxtParser extends AbstractParser
 
     public function getHeader()
     {
-        
+        return explode($this->delimiter, $this->lines[$this->headerIndex]);
     }
 
 }
