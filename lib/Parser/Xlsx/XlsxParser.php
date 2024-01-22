@@ -38,7 +38,7 @@ class XlsxParser extends AbstractParser
     private ?int $headerIndex = 1;
 
     private \PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet;
-
+    private array $headerRow = [];
     public function parse($path): \PhpOffice\PhpSpreadsheet\Spreadsheet
     {
         $this->spreadsheet = IOFactory::load($path);
@@ -50,12 +50,11 @@ class XlsxParser extends AbstractParser
      */
     public function getRecords($params=[]): array
     {
-        $sheetName=$params['sheetName'] ?? null;
+        $sheetName=$params['sheetName'] ?? 'import';
         $offset=$params['offset'] ?? 0;
         $limit=$params['limit'] ?? null;
         // Select the sheet based on the provided sheet name
         $worksheet = $this->spreadsheet->getSheetByName($sheetName);
-
         if ($worksheet === null) {
             throw new \Exception(sprintf('Sheet %s not found in the XLSX file.', $sheetName));
         }
@@ -119,7 +118,31 @@ class XlsxParser extends AbstractParser
     }
     public function getHeader()
     {
+        if (empty($this->headerRow)) {
+            $this->populateHeader();
+        }
+        return $this->headerRow;
         
+    }
+    private function populateHeader(): void
+    {
+        // Select the sheet based on the provided sheet name
+        $worksheet = $this->spreadsheet->getActiveSheet();
+
+        // Get the highest column index to iterate through
+        $highestColumn = $worksheet->getHighestColumn();
+
+        // Initialize an array for the header row
+        $headerRow = [];
+
+        // Iterate through the columns
+        for ($col = 'A'; $col != $highestColumn; $col++) {
+            // Get the cell value
+            $cellValue = $worksheet->getCell($col . $this->headerIndex)->getValue();
+            $headerRow[$col] = $cellValue;
+        }
+
+        $this->headerRow = $headerRow;
     }
 
 }
